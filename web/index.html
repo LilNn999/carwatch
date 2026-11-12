@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>车价观察 · 本地工作台</title>
+  <link rel="icon" href="/web/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/desktop-v3.css">
+  <link rel="stylesheet" href="/static/desktop-light.css">
+  <link rel="stylesheet" href="/web/app.css?v=19">
+  <script defer src="/web/icons.js?v=19"></script>
+  <script defer src="/web/ui.js?v=19"></script>
+  <script defer src="/web/app.js?v=19"></script>
+</head>
+<body>
+  <a class="skip-link" href="#page">跳到工作区</a>
+  <header class="app-top">
+    <a class="brand" href="#overview" aria-label="车价观察首页"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 21l5-10a3 3 0 015.4 0L22 23M10 19h10M23 8l3 3-3 3"/></svg></span><span><strong>车价观察</strong><small>个人汽车行情工作台</small></span></a>
+    <form class="global-search" id="global-search-form" role="search"><span data-icon="search"></span><input id="global-search" type="search" placeholder="搜索车源、车型或原文关键词" aria-label="搜索车源、车型或原文关键词"><kbd>↵</kbd></form>
+    <div class="window-tools"><span class="local-pill" id="connection-status" role="status"><i></i><span>正在连接本机</span></span><button class="icon-button" data-action="backup" aria-label="下载本机完整备份" title="下载本机完整备份"><span data-icon="download"></span></button><button class="icon-button" data-action="settings" aria-label="工作台设置" title="省份、预算与识别能力"><span data-icon="settings"></span></button><span class="avatar" aria-label="本地个人工作区">我</span></div>
+  </header>
+  <div class="workspace-nav"><nav id="navigation" aria-label="主要导航">
+    <a href="#overview" data-page="overview"><span data-icon="overview"></span>行情总览</a>
+    <a href="#listings" data-page="listings"><span data-icon="car"></span>车源台账</a>
+    <a href="#models" data-page="models"><span data-icon="layers"></span>车型档案</a>
+    <a href="#compare" data-page="compare"><span data-icon="compare"></span>购车对比<span id="compare-count" class="nav-count" aria-label="对比车源数量">—</span></a>
+    <a href="#fuel" data-page="fuel"><span data-icon="fuel"></span>油价走势</a>
+    <a href="#import" data-page="import"><span data-icon="upload"></span>导入记录<span id="import-active" class="nav-count" hidden>处理中</span></a>
+  </nav><span class="workspace-note"><span data-icon="shield"></span>你的数据，保留在本机</span></div>
+  <div class="app-shell"><main id="page" tabindex="-1" aria-live="polite"><div class="empty-state"><h3>正在连接本机工作台</h3><p>读取已保存的资料。</p></div></main><footer class="page-footer"><span>行情来自卖方报价，非成交价；图片与车况需自行核验。</span><span id="footer-status">本机资料 · PC 桌面版</span></footer></div>
+  <dialog id="detail-drawer" class="detail-drawer" aria-label="车源详情"></dialog>
+  <dialog id="modal" class="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <input id="folder-input" type="file" webkitdirectory multiple hidden aria-label="选择导出的聊天记录文件夹">
+  <input id="zip-input" type="file" accept=".zip,application/zip" hidden aria-label="选择导出的 ZIP 文件">
+  <noscript><div class="notice">请启用 JavaScript 以读取本机资料并使用工作台。</div></noscript>
+</body>
+</html>
