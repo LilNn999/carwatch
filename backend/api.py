@@ -201,5 +201,5 @@ def create_app(data_dir=None,run_worker=True):
         def v2_index(): return FileResponse(ROOT/'web'/'v2'/'index.html',media_type='text/html')
         app.mount('/v2',StaticFiles(directory=ROOT/'web'/'v2',html=True),name='v2')
     if (ROOT/'web').exists(): app.mount('/web',StaticFiles(directory=ROOT/'web'),name='web')
-    app.mount('/static',StaticFiles(directory=ROOT/'prototype'),name='static')
+    if (ROOT/'prototype').exists(): app.mount('/static',StaticFiles(directory=ROOT/'prototype'),name='static')
     return app
