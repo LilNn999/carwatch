@@ -187,19 +187,7 @@ def create_app(data_dir=None,run_worker=True):
         if not path.is_file(): raise importer.ImportProblem('图片文件缺失，请重新导入附件',404)
         return FileResponse(path,media_type='image/jpeg' if thumb else row['mime'])
 
-    @app.get('/')
-    def home():
-        from fastapi.responses import RedirectResponse
-        if (ROOT/'web'/'v2'/'index.html').is_file():
-            return RedirectResponse('/v2/',status_code=307)
-        return FileResponse(ROOT/'web'/'index.html',media_type='text/html')
-
-    @app.get('/legacy')
-    def legacy_home(): return FileResponse(ROOT/'web'/'index.html',media_type='text/html')
-    if (ROOT/'web'/'v2').exists():
-        @app.get('/v2')
-        def v2_index(): return FileResponse(ROOT/'web'/'v2'/'index.html',media_type='text/html')
-        app.mount('/v2',StaticFiles(directory=ROOT/'web'/'v2',html=True),name='v2')
-    if (ROOT/'web').exists(): app.mount('/web',StaticFiles(directory=ROOT/'web'),name='web')
+    if (ROOT/'web'/'index.html').exists():
+        app.mount('/',StaticFiles(directory=ROOT/'web',html=True),name='web')
     if (ROOT/'prototype').exists(): app.mount('/static',StaticFiles(directory=ROOT/'prototype'),name='static')
     return app

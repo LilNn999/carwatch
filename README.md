@@ -52,11 +52,6 @@ python3 -m venv .venv
 python run.py --data-dir /path/to/data --port 5138 --open
 ```
 
-## 界面
-
-- `/` → 新版界面 `/v2/`（React，已随仓库提供构建产物）
-- `/legacy` → 旧版原生界面（保留作对照）
-
 ## 开发
 
 ```bash
@@ -66,17 +61,17 @@ python run.py --data-dir /path/to/data --port 5138 --open
 # 前端（可选，仅在修改 React 界面时需要）
 cd app
 npm install
-npm run build      # 产物输出到 ../web/v2
+npm run build      # 产物输出到 ../web
 ```
 
-前端源码在 `app/`（Vite + React + TypeScript），构建产物 `web/v2/` 已提交，便于开箱即用；改完源码记得重新构建。
+前端源码在 `app/`（Vite + React + TypeScript），构建产物 `web/` 已提交，便于开箱即用；改完源码记得重新构建。
 
 ## 目录
 
 ```
 backend/      FastAPI 路由、导入器、解析规则、业务查询
 tests/        pytest（API + 导入 + 解析回归）
-web/          旧版静态界面 + 新版构建产物 v2/
+web/          前端构建产物（index.html + assets/）
 app/          新版前端源码（Vite + React + TS）
 data/         运行时生成：carwatch.sqlite3、media/、thumbs/、batches/、backups/
 run.py        启动入口
